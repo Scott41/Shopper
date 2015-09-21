@@ -3,28 +3,20 @@
 
   angular.module('item.service', ['ngStorage'])
 
-      .factory('Items', function ($localStorage) {
-        // Might use a resource here that returns a JSON array
+      .factory('Items', function ($localStorage, $http) {
+        var items;
 
-        // Some fake testing data
-        var items = [
-          {
-            id: 0,
-            name: 'veggies',
-            details: '',
-            lastBought: new Date()
-          },
-          {
-            id: 1,
-            name: 'pizza',
-            details: '',
-            lastBought: new Date()
-          }
-        ];
+        if ($localStorage.shopperItems == null || undefined) {
+          $http.get('json/defaultItems.json').success(function(data) {
+            $localStorage.shopperItems = data;
+            items = $localStorage.shopperItems;
+          });
+        } else {
+          items = $localStorage.shopperItems;
+        }
 
         return {
           all: function () {
-            console.log($localStorage);
             return items;
           },
           remove: function (item) {

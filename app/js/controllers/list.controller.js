@@ -2,17 +2,19 @@
     'use strict';
 
     angular
-        .module('list.controller', [])
-        .controller('ListController', function ($scope, Items) {
-            // To listen for when this page is active (for example, to refresh data),
-            // listen for the $ionicView.enter event:
-            //
+        .module('list.controller', ['ngStorage'])
+        .controller('ListController', function ($scope, $localStorage, Items) {
             //$scope.$on('$ionicView.enter', function(e) {
+            //
             //});
-
+            if ($localStorage.itemSort == null || undefined) {
+                $localStorage.itemSort = 'Alphabetical'
+            }
+            $scope.itemSort = $localStorage.itemSort;
             $scope.items = Items.all();
-            $scope.remove = function (item) {
-                Items.remove(item);
+
+            $scope.toggleItem = function (item) {
+                if (item.selected) item.selected = false;
             };
         });
 })();

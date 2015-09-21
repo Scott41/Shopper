@@ -29,6 +29,7 @@
             })
             .state('tab.dash', {
               url: '/dash',
+              cache: false,
               views: {
                 'tab-dash': {
                   templateUrl: '../views/tab-dash.html',
@@ -39,6 +40,7 @@
 
             .state('tab.list', {
               url: '/list',
+              cache: false,
               views: {
                 'tab-list': {
                   templateUrl: '../views/tab-list.html',
@@ -49,6 +51,7 @@
 
             .state('tab.shelf', {
               url: '/shelf',
+              cache: false,
               views: {
                 'tab-shelf': {
                   templateUrl: '../views/tab-shelf.html',
