@@ -14,7 +14,6 @@
         } else {
           items = $localStorage.shopperItems;
         }
-
         return {
           all: function () {
             return items;
