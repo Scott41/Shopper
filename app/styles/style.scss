@@ -7,3 +7,37 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "../lib/ionic/scss/ionic";
+
+//Global
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+//Dash
+
+//List
+
+//Shelf
+.disabled {
+  background-color: #8f7e7e !important;
+  color: #676767 !important;
+
+}
+.shelf-item-name {
+  height: 48px !important;
+  width: 70%;
+  h1, h2, h3 {
+    line-height: 3;
+  }
+}
+.shelf-item-input {
+  text-align: center;
+  width: 16%;
+  height: 20px !important;
+  border: 1px solid #000 !important;
+  padding: 10px !important;
+  margin-top: 12px;
+}

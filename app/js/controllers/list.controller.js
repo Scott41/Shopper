@@ -7,14 +7,25 @@
             //$scope.$on('$ionicView.enter', function(e) {
             //
             //});
+
             if ($localStorage.itemSort == null || undefined) {
-                $localStorage.itemSort = 'Alphabetical'
+                $localStorage.itemSort = {id: 1, name: 'Alphabetical'}
             }
-            $scope.itemSort = $localStorage.itemSort;
+            $scope.itemSort = {
+                options: [
+                    {id: '1', name: 'Alphabetical'},
+                    {id: '2', name: 'Aisle Number'}
+                ],
+                selectedSort: $localStorage.itemSort
+            };
             $scope.items = Items.all();
 
             $scope.toggleItem = function (item) {
                 if (item.selected) item.selected = false;
             };
+            $scope.updateSort = function () {
+                console.log($scope.itemSort.selectedSort);
+                $localStorage.itemSort = $scope.itemSort.selectedSort;
+            }
         });
 })();

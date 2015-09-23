@@ -117,4 +117,4 @@ gulp.task('watch', function() {
     gulp.watch(app.nocss, ['build']);
 });
 
-gulp.task('default', ['watch', 'lab']);
+gulp.task('default', ['watch']);
