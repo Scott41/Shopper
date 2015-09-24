@@ -8,6 +8,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "../lib/ionic/scss/ionic";
 
+$app-light-grey: #A9A4A4;
+$app-dark-grey: #5D5D5D;
+
 //Global
 .left {
   float: left;
@@ -21,11 +24,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 //List
 
 //Shelf
-.disabled {
-  background-color: #8f7e7e !important;
-  color: #676767 !important;
-
-}
+// .disabled {
+//   background-color: $app-light-grey;
+//   color: $app-dark-grey;
+//   .item-content {
+//     background-color: inherit;
+//     h1, h2, h3, p, span{
+//       color: inherit;
+//     }
+//   }
+//   input {
+//     border-color: $app-light-grey;
+//   }
+// }
 .shelf-item-name {
   height: 48px !important;
   width: 70%;
@@ -35,9 +46,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 .shelf-item-input {
   text-align: center;
-  width: 16%;
-  height: 20px !important;
-  border: 1px solid #000 !important;
-  padding: 10px !important;
+  width: 20%;
+  height: 20px;
+  padding: 10px;
   margin-top: 12px;
+  background-color: transparent !important;
+  z-index: 500 !important;
+}
+.checkbox-limit-right {
+  right: 100% !important;
+  z-index: -1 !important;
 }

@@ -3,16 +3,20 @@
 
     angular
         .module('shelf.controller', [])
-        .controller('ShelfController', function ($scope, Items) {
+        .controller('ShelfController', function ($scope, $location, Items) {
             $scope.items = Items.all();
             $scope.toggle = function (item) {
-                if (!item.selected) item.selected = true;
-            };
-            $scope.edit = function (item) {
-                return;
+                if (!item.selected) {
+                  item.selected = true;
+                } else {
+                  item.selected = false;
+                }
             };
             $scope.remove = function (item) {
                 Items.remove(item);
+            };
+            $scope.go = function (path) {
+              $location.path(path);
             };
         });
 })();

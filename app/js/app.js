@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  angular.module('app', ['ionic', 'dash.controller', 'list.controller', 'shelf.controller', 'item.service'])
+  angular.module('app', ['ionic', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller', 'item.service'])
 
       .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -15,7 +15,8 @@
           }
           if (window.StatusBar) {
             // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
+            StatusBar.overlaysWebView(true);
+            StatusBar.styleBlackTranslucent();
           }
         });
       })
@@ -26,14 +27,14 @@
             .state('tab', {
               url: '/tab',
               abstract: true,
-              templateUrl: '../views/tabs.html'
+              templateUrl: 'views/tabs.html'
             })
             .state('tab.dash', {
               url: '/dash',
               cache: false,
               views: {
                 'tab-dash': {
-                  templateUrl: '../views/tab-dash.html',
+                  templateUrl: 'views/tab-dash.html',
                   controller: 'DashController'
                 }
               }
@@ -44,7 +45,7 @@
               cache: false,
               views: {
                 'tab-list': {
-                  templateUrl: '../views/tab-list.html',
+                  templateUrl: 'views/tab-list.html',
                   controller: 'ListController'
                 }
               }
@@ -55,10 +56,20 @@
               cache: false,
               views: {
                 'tab-shelf': {
-                  templateUrl: '../views/tab-shelf.html',
+                  templateUrl: 'views/tab-shelf.html',
                   controller: 'ShelfController'
                 }
               }
+            })
+            .state('tab.item-detail', {
+               url: '/shelf/:id',
+               views: {
+                 'tab-shelf': {
+                   templateUrl: 'views/item-detail.html',
+                   controller: 'ItemDetailController'
+                 }
+               }
+
             });
 
         $urlRouterProvider.otherwise('/tab/dash');

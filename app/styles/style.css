@@ -7694,10 +7694,6 @@ a.button {
 .right {
   float: right; }
 
-.disabled {
-  background-color: #8f7e7e !important;
-  color: #676767 !important; }
-
 .shelf-item-name {
   height: 48px !important;
   width: 70%; }
@@ -7706,8 +7702,13 @@ a.button {
 
 .shelf-item-input {
   text-align: center;
-  width: 16%;
-  height: 20px !important;
-  border: 1px solid #000 !important;
-  padding: 10px !important;
-  margin-top: 12px; }
+  width: 20%;
+  height: 20px;
+  padding: 10px;
+  margin-top: 12px;
+  background-color: transparent !important;
+  z-index: 500 !important; }
+
+.checkbox-limit-right {
+  right: 100% !important;
+  z-index: -1 !important; }

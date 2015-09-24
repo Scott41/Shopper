@@ -1,12 +1,15 @@
 <ion-view view-title="Shelf">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="item in items | orderBy: 'name'" ng-disabled="item.selected" ng-class="item.selected ? 'item-positive' : ''" type="item-text-wrap">
-        <div class="left shelf-item-name" ng-click="!item.selected ? toggle(item) : '' ">
+      <ion-item ng-repeat="item in items | orderBy: 'name'" type="item-text-wrap">
+        <div class="left shelf-item-name item-checkbox" ng-click="toggle(item)">
+          <label class="checkbox checkbox-limit-right">
+            <input ng-model="item.selected" type="checkbox">
+          </label>
           <h2>{{item.name}}</h2>
         </div>
-        <input class="right shelf-item-input" type="text" ng-model="item.aisle" ng-maxlength="12" ng-trim="true" placeholder="aisle" />
-        <ion-option-button class="button-energized" ng-click="edit(item)">
+        <input class="right shelf-item-input" type="text" ng-model="item.aisle" ng-maxlength="12" ng-trim="true" placeholder="Aisle" />
+        <ion-option-button class="button-energized" ng-click="go('/tab/shelf/{{item.id}}')">
           Edit
         </ion-option-button>
         <ion-option-button class="button-assertive" ng-click="remove(item)">
