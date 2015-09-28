@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  angular.module('app', ['ionic', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller', 'item.service'])
+  angular.module('app', ['ionic', 'search.directive', 'ng-mfb', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller', 'item.service'])
 
       .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {

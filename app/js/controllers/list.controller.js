@@ -24,7 +24,6 @@
                 if (item.selected) item.selected = false;
             };
             $scope.updateSort = function () {
-                console.log($scope.itemSort.selectedSort);
                 $localStorage.itemSort = $scope.itemSort.selectedSort;
             }
         });

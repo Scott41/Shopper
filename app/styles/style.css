@@ -7688,11 +7688,26 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.platform-ios .mfb-component--br {
+  bottom: 40px; }
+
 .left {
   float: left; }
 
 .right {
   float: right; }
+
+.absolute-right {
+  position: fixed !important;
+  right: 0;
+  top: 0;
+  z-index: 999; }
+
+.mfb-component__button--main {
+  background-color: #0c60ee !important; }
+
+.space-bottom > .list {
+  padding-bottom: 100px; }
 
 .shelf-item-name {
   height: 48px !important;
@@ -7712,3 +7727,6 @@ a.button {
 .checkbox-limit-right {
   right: 100% !important;
   z-index: -1 !important; }
+
+.add-item-input {
+  padding: 10px !important; }

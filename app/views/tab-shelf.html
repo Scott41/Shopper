@@ -1,7 +1,8 @@
 <ion-view view-title="Shelf">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="item in items | orderBy: 'name'" type="item-text-wrap">
+    <ion-item list-search></ion-item>
+    <ion-list class="space-bottom">
+      <ion-item ng-repeat="item in items | orderBy: 'name' | filter:search.text"  type="item-text-wrap">
         <div class="left shelf-item-name item-checkbox" ng-click="toggle(item)">
           <label class="checkbox checkbox-limit-right">
             <input ng-model="item.selected" type="checkbox">
@@ -18,4 +19,8 @@
       </ion-item>
     </ion-list>
   </ion-content>
+  <nav mfb-menu position="br" effect="zoomin" class="item-positive"
+    active-icon="ion-close-round" resting-icon="ion-plus-round"
+    toggling-method="click" main-action="showPopup()" menu-state="addItemFormState">
+  </nav>
 </ion-view>

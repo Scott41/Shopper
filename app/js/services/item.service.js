@@ -18,6 +18,12 @@
           all: function () {
             return items;
           },
+          add: function (name) {
+
+          },
+          update: function (item) {
+
+          },
           remove: function (item) {
             items.splice(items.indexOf(item), 1);
           },
