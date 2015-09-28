@@ -10,7 +10,7 @@
           <h2>{{item.name}}</h2>
         </div>
         <input class="right shelf-item-input" type="text" ng-model="item.aisle" ng-maxlength="12" ng-trim="true" placeholder="Aisle" />
-        <ion-option-button class="button-energized" ng-click="go('/tab/shelf/{{item.id}}')">
+        <ion-option-button class="button-energized" ng-click="showEditItemPopup(item)">
           Edit
         </ion-option-button>
         <ion-option-button class="button-assertive" ng-click="remove(item)">
@@ -21,6 +21,6 @@
   </ion-content>
   <nav mfb-menu position="br" effect="zoomin" class="item-positive"
     active-icon="ion-close-round" resting-icon="ion-plus-round"
-    toggling-method="click" main-action="showPopup()" menu-state="addItemFormState">
+    toggling-method="click" main-action="showAddItemPopup()" menu-state="addItemFormState">
   </nav>
 </ion-view>

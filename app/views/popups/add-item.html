@@ -1,1 +1,5 @@
-<input type="text" class="add-item-input" ng-model="data.itemName">
+<form name="addItemForm">
+<span class="error" ng-show="addItemForm.itemName.$error.maxlength">
+        Item name exceeds maximum length (30 characters)</span>
+<input ng-maxlength="30" type="text" name="itemName" class="add-item-input" ng-model="data.itemName">
+</form>

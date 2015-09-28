@@ -8,8 +8,8 @@
             //
             //});
 
-            if ($localStorage.itemSort == null || undefined) {
-                $localStorage.itemSort = {id: 1, name: 'Alphabetical'}
+            if ($localStorage.itemSort === null || undefined) {
+                $localStorage.itemSort = {id: 1, name: 'Alphabetical'};
             }
             $scope.itemSort = {
                 options: [
@@ -25,6 +25,6 @@
             };
             $scope.updateSort = function () {
                 $localStorage.itemSort = $scope.itemSort.selectedSort;
-            }
+            };
         });
 })();

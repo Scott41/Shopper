@@ -10,7 +10,7 @@
             var size = 0;
             for (var i = 0; i < items.length; i++) {
               if (items[i].selected) {
-                size++
+                size++;
               }
             }
             $scope.size = size;

@@ -7691,11 +7691,20 @@ a.button {
 .platform-ios .mfb-component--br {
   bottom: 40px; }
 
+.error {
+  color: red; }
+
 .left {
   float: left; }
 
 .right {
   float: right; }
+
+.alert-offset-bottom {
+  bottom: 20%; }
+
+.no-background-size {
+  background-size: 0 !important; }
 
 .absolute-right {
   position: fixed !important;

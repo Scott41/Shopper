@@ -6,7 +6,7 @@
       .factory('Items', function ($localStorage, $http) {
         var items;
 
-        if ($localStorage.shopperItems == null || undefined) {
+        if ($localStorage.shopperItems === null || undefined) {
           $http.get('json/defaultItems.json').success(function(data) {
             $localStorage.shopperItems = data;
             items = $localStorage.shopperItems;
@@ -19,9 +19,17 @@
             return items;
           },
           add: function (name) {
-
+            var newItem = {
+              "name": name,
+              "id": name.toLowerCase(),
+              "lastBought": "",
+              "timesBought": 0,
+              "aisle": "",
+              "selected": true
+            };
+            items.push(newItem);
           },
-          update: function (item) {
+          update: function (item, name) {
 
           },
           remove: function (item) {
