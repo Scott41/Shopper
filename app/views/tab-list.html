@@ -1,7 +1,6 @@
 <ion-view view-title="List">
   <ion-content>
-    <div class="list">
-
+    <div>
       <label class="item item-input item-select">
         <div class="input-label">
           Ordered by:
@@ -11,10 +10,12 @@
                 ng-change="updateSort()">
         </select>
       </label>
-
     </div>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar" ng-repeat="item in items | orderBy: itemSort.selectedSort.id == '1' ? 'name' : 'aisle' | filter: { selected: true }" ng-click="toggleItem(item) " type="item-text-wrap">
+      <ion-item class="item-remove-animate item-avatar"
+        ng-repeat="item in items | orderBy: itemSort.selectedSort.id == '1' ? 'name' : 'aisle' | filter: { selected: true }"
+        ng-click="buyItem(item)"
+        type="item-text-wrap">
         <h2>{{item.name}}</h2>
         <p ng-if="item.aisle.length > 0">Aisle: {{item.aisle}}</p>
       </ion-item>

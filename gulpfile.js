@@ -48,7 +48,7 @@ gulp.task('cdv-platforms-clean', function (cb) {
 gulp.task('add-platforms', function () {
     platforms.list.forEach(function (platform) {
         shell.exec('cordova platform add ' + platform);
-    })
+    });
 });
 
 gulp.task('setup-plugins', function () {

@@ -17,6 +17,9 @@ $app-positive: #0c60ee;
   .mfb-component--br {
     bottom: 40px;
   }
+  .alert-offset-bottom {
+    bottom: 20%;
+  }
 }
 
 //Global
@@ -28,9 +31,6 @@ $app-positive: #0c60ee;
 }
 .right {
   float: right;
-}
-.alert-offset-bottom {
-  bottom: 20%;
 }
 .no-background-size {
   background-size: 0 !important;

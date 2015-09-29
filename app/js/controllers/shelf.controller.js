@@ -3,7 +3,7 @@
 
     angular
         .module('shelf.controller', [])
-        .controller('ShelfController', function ($scope, $location, $ionicPopup, Items) {
+        .controller('ShelfController', function ($scope, $ionicLoading, $location, $ionicPopup, Items) {
             $scope.items = Items.all();
             $scope.addItemFormState = false;
             $scope.on = false;
@@ -56,6 +56,7 @@
                       e.preventDefault();
                     } else {
                       Items.add($scope.data.itemName);
+                      $scope.items = Items.all();
                       return $scope.toggleAddItemFormState();
                     }
                   }
@@ -89,6 +90,7 @@
                     e.preventDefault();
                   } else {
                     item.name = $scope.data.itemName;
+                    Items.update(item);
                     return;
                   }
                 }

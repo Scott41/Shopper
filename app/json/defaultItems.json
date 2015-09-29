@@ -609,14 +609,6 @@
         "selected": false
     },
     {
-        "name": "Beer",
-        "id": "beer",
-        "lastBought": "",
-        "timesBought": 0,
-        "aisle": "",
-        "selected": false
-    },
-    {
         "name": "Pasta Sauce",
         "id": "pasta-sauce",
         "lastBought": "",

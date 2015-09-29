@@ -3,20 +3,22 @@
 
   angular.module('item.service', ['ngStorage'])
 
-      .factory('Items', function ($localStorage, $http) {
+      .factory('Items', function ($localStorage, $ionicLoading, $http) {
         var items;
-
-        if ($localStorage.shopperItems === null || undefined) {
-          $http.get('json/defaultItems.json').success(function(data) {
-            $localStorage.shopperItems = data;
-            items = $localStorage.shopperItems;
-          });
-        } else {
+        if ($localStorage.shopperItems) {
           items = $localStorage.shopperItems;
+        } else {
+          $http.get('json/defaultItems.json').success(function(data) {
+              $localStorage.shopperItems = data;
+              items = $localStorage.shopperItems;
+          });
         }
         return {
+          set: function (i) {
+            items = i;
+          },
           all: function () {
-            return items;
+            return items || [];
           },
           add: function (name) {
             var newItem = {
@@ -27,7 +29,8 @@
               "aisle": "",
               "selected": true
             };
-            items.push(newItem);
+            $localStorage.shopperItems.push(newItem);
+            console.log(items);
           },
           update: function (item, name) {
 

@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  angular.module('app', ['ionic', 'search.directive', 'ng-mfb', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller', 'item.service'])
+  angular.module('app', ['ionic', 'ngTouch', 'ngAnimate', 'search.directive', 'ng-mfb', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller', 'item.service'])
 
       .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -19,9 +19,7 @@
           }
         });
       })
-
       .config(function ($stateProvider, $urlRouterProvider) {
-
         $stateProvider
             .state('tab', {
               url: '/tab',
@@ -38,7 +36,6 @@
                 }
               }
             })
-
             .state('tab.list', {
               url: '/list',
               cache: false,
@@ -49,10 +46,9 @@
                 }
               }
             })
-
             .state('tab.shelf', {
               url: '/shelf',
-              cache: false,
+              cache: true,
               views: {
                 'tab-shelf': {
                   templateUrl: 'views/tab-shelf.html',
@@ -70,8 +66,10 @@
                }
 
             });
-
         $urlRouterProvider.otherwise('/tab/dash');
-
+      })
+      .constant('$ionicLoadingConfig', {
+          template: '<ion-spinner class="spinner-positive" icon="bubbles"></ion-spinner>',
+          noBackdrop: true
       });
 })();

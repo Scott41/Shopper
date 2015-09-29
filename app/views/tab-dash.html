@@ -4,7 +4,7 @@
       <div class="item item-divider item-positive">Notices</div>
       <div class="item item-body">
         <div>
-          Looks like you need some more milk!
+          {{notices.needMore ? "Looks like you might need some more " + notices.needMore + "!" : "No notifications."}}
         </div>
       </div>
     </div>
@@ -12,7 +12,7 @@
       <div class="item item-divider item-positive">History</div>
       <div class="item item-body">
         <div>
-          You last went shopping: 9/14/15
+          You last went shopping: {{history.lastShop || "never"}}
         </div>
       </div>
     </div>

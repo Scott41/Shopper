@@ -7690,6 +7690,8 @@ a.button {
 
 .platform-ios .mfb-component--br {
   bottom: 40px; }
+.platform-ios .alert-offset-bottom {
+  bottom: 20%; }
 
 .error {
   color: red; }
@@ -7699,9 +7701,6 @@ a.button {
 
 .right {
   float: right; }
-
-.alert-offset-bottom {
-  bottom: 20%; }
 
 .no-background-size {
   background-size: 0 !important; }
