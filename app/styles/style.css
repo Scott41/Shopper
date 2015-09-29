@@ -7688,6 +7688,11 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.reddd {
+  color: red !important;
+  background-color: red !important;
+  border: 1px solid red !important; }
+
 .platform-ios .mfb-component--br {
   bottom: 40px; }
 .platform-ios .alert-offset-bottom {
