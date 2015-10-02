@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  angular.module('app', ['ionic', 'tabsSwipable.directive', 'ngTouch', 'ngAnimate', 'search.directive', 'ng-mfb', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller', 'item.service'])
+  angular.module('app', ['ionic', 'ngResource', 'tabsSwipable.directive', 'ngTouch', 'ngAnimate', 'search.directive', 'ng-mfb', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller',  'setDefaultItems.service', 'item.service'])
 
       .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -34,6 +34,17 @@
                   templateUrl: 'views/tab-dash.html',
                   controller: 'DashController'
                 }
+              },
+              resolve: {
+                defaultItems: ['$q', 'DefaultItems', function($q, DefaultItems) {
+                  var d = $q.defer();
+                  DefaultItems.get(function(defaultItems) {
+                    d.resolve(defaultItems);
+                  }, function(err) {
+                    d.reject(err);
+                  });
+                  return d.promise;
+                }]
               }
             })
             .state('tab.list', {
@@ -44,7 +55,7 @@
                   templateUrl: 'views/tab-list.html',
                   controller: 'ListController'
                 }
-              }
+              },
             })
             .state('tab.shelf', {
               url: '/shelf',

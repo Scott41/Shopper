@@ -3,17 +3,9 @@
 
     angular
         .module('dash.controller', [])
-        .controller('DashController', function ($scope, $ionicLoading, Items) {
-            var items;
-            $ionicLoading.show();
-            var setScopeItems = function () {
-                items = Items.all();
-                if (items.length < 1) {
-                  setTimeout(function () {
-                    setScopeItems();
-                  }, 500);
-                } else {
-                  $ionicLoading.hide();
+        .controller('DashController', function ($scope, $ionicLoading, defaultItems, Items) {
+            console.log(defaultItems);
+            var items = Items.all();
                   var needMore = '';
                   var lastShop;
                   for (var j = 0; j < items.length; j++) {
@@ -45,8 +37,8 @@
                   $scope.history = {
                     lastShop: lastShop
                   };
-                }
-            };
+
+
             setScopeItems();
 
         });
