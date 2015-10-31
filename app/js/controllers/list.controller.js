@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('list.controller', ['ngStorage'])
+        .module('list.controller', [])
         .controller('ListController', function ($scope, $ionicLoading, $localStorage, Items) {
             //$scope.$on('$ionicView.enter', function(e) {
             //

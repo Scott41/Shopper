@@ -2,7 +2,9 @@
 (function() {
   'use strict';
 
-  angular.module('app', ['ionic', 'tabsSwipable.directive', 'ngTouch', 'ngAnimate', 'search.directive', 'ng-mfb', 'dash.controller', 'list.controller', 'shelf.controller', 'itemDetail.controller', 'item.service'])
+  angular.module('app', ['ionic', 'ngStorage', 'tabsSwipable.directive', 'ngTouch', 'ngAnimate',
+  'search.directive', 'ng-mfb', 'dash.controller', 'list.controller',
+  'shelf.controller', 'itemDetail.controller', 'item.service'])
 
       .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -33,6 +35,15 @@
                 'tab-dash': {
                   templateUrl: 'views/tab-dash.html',
                   controller: 'DashController'
+                }
+              },
+              resolve: {
+                defaultItems: function ($localStorage, Items) {
+                  if (!$localStorage.shopperItems || angular.equals({}, $localStorage.shopperItems)) {
+                    return Items.getDefaultItems();
+                  } else {
+                    return [];
+                  }
                 }
               }
             })
